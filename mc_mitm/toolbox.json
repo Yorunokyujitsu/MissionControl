@@ -1,5 +1,5 @@
 {
-	"name"  : "MissionControl",
+	"name"  : "무선 컨트롤러 연결",
 	"tid"   : "010000000000bd00",
 	"requires_reboot": true
 }

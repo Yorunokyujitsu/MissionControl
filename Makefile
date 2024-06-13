@@ -29,22 +29,20 @@ dist: all
 
 	
 
-	mkdir -p dist/atmosphere/contents/$(MC_MITM_TID)
-	cp mc_mitm/out/nintendo_nx_arm64_armv8a/release/mc_mitm.nsp dist/atmosphere/contents/$(MC_MITM_TID)/exefs.nsp
-	echo "btdrv" >> dist/atmosphere/contents/$(MC_MITM_TID)/mitm.lst
-	echo "btm" >> dist/atmosphere/contents/$(MC_MITM_TID)/mitm.lst
+	mkdir -p dist/MissionControl/$(MC_MITM_TID)
+	cp mc_mitm/out/nintendo_nx_arm64_armv8a/release/mc_mitm.nsp dist/MissionControl/$(MC_MITM_TID)/exefs.nsp
+	echo "btdrv" >> dist/MissionControl/$(MC_MITM_TID)/mitm.lst
+	echo "btm" >> dist/MissionControl/$(MC_MITM_TID)/mitm.lst
 
-	mkdir -p dist/atmosphere/contents/$(MC_MITM_TID)/flags
-	touch dist/atmosphere/contents/$(MC_MITM_TID)/flags/boot2.flag
+	mkdir -p dist/MissionControl/$(MC_MITM_TID)/flags
+	touch dist/MissionControl/$(MC_MITM_TID)/flags/boot2.flag
 
-	cp mc_mitm/toolbox.json dist/atmosphere/contents/$(MC_MITM_TID)/toolbox.json
+	cp mc_mitm/toolbox.json dist/MissionControl/$(MC_MITM_TID)/toolbox.json
 
-	cp -r exefs_patches dist/atmosphere/
+	cp -r exefs_patches/bluetooth_patches dist/MissionControl/
+	cp -r exefs_patches/btm_patches dist/MissionControl/
 
-	mkdir -p dist/config/MissionControl
-	mkdir -p dist/config/MissionControl/controllers
-	cp mc_mitm/config.ini dist/config/MissionControl/missioncontrol.ini.template
-
-	cd dist; zip -r $(PROJECT_NAME)-$(BUILD_VERSION).zip ./*; cd ../;
+	mkdir -p dist/MissionControl/MissionControl
+	cp mc_mitm/config.ini dist/MissionControl/MissionControl/missioncontrol.ini
 
 .PHONY: all clean dist $(TARGETS)

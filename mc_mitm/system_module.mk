@@ -3,7 +3,7 @@
 #---------------------------------------------------------------------------------
 THIS_MAKEFILE := $(abspath $(lastword $(MAKEFILE_LIST)))
 CURRENT_DIRECTORY := $(abspath $(dir $(THIS_MAKEFILE)))
-include $(dir $(abspath $(lastword $(MAKEFILE_LIST))))/../lib/Atmosphere-libs/config/templates/stratosphere.mk
+include $(dir $(abspath $(lastword $(MAKEFILE_LIST))))/../../../../Atmosphere/libraries/config/templates/stratosphere.mk
 
 ATMOSPHERE_SYSTEM_MODULE_TARGETS := nsp
 
